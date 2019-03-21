@@ -5,11 +5,13 @@ import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.time.LocalDate;
 
 @Getter
 @Setter
-@Entity(name = "user")
+@Entity
+@Table(name = "user", schema = "bd")
 public class UserEntity extends BaseEntity{
 
     /**

@@ -5,11 +5,13 @@ import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.math.BigDecimal;
 
 @Getter
 @Setter
-@Entity(name = "catalog")
+@Entity
+@Table(name = "catalog", schema = "bd")
 public class CatalogEntity extends BaseEntity {
 
     /**

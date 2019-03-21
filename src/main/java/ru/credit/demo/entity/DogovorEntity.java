@@ -32,7 +32,7 @@ public class DogovorEntity extends BaseEntity {
     private BigDecimal price;
 
     /**
-     * Сумма договора
+     * Длительность договора
      */
     @Column(name = "Dlit")
     private Integer contractPeriod;

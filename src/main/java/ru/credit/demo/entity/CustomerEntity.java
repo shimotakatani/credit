@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Entity
-@Table(name = "castumer", schema = "BD")
+@Table(name = "castumer", schema = "bd")
 public class CustomerEntity extends BaseEntity {
 
     /**

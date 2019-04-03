@@ -11,85 +11,85 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Entity
-@Table(name = "castumer", schema = "BD")
+@Table(name = "customer", schema = "bd")
 public class CustomerEntity extends BaseEntity {
 
     /**
      * ФИО клиента
      */
-    @Column(name = "FIO")
+    @Column(name = "fio")
     private String fio;
 
     /**
      * Серия паспорта клиента
      */
-    @Column(name = "Psre")
+    @Column(name = "passport_serial")
     private Integer passportSeria;
 
     /**
      * Номер паспорта клиента
      */
-    @Column(name = "Pnom")
+    @Column(name = "passport_number")
     private Integer passportNumber;
 
     /**
      * Дата рождения клиента
      */
-    @Column(name = "DayR")
+    @Column(name = "birth_date")
     private LocalDate birthDate;
 
     /**
      * Дата выдачи паспорта клиента
      */
-    @Column(name = "Pday")
+    @Column(name = "passport_issuance_date")
     private LocalDate passportIssuanceDate;
 
     /**
      * Место выдачи паспорта клиента
      */
-    @Column(name = "Pvyd")
+    @Column(name = "passport_issuance_place")
     private String passportIssuancePlace;
 
     /**
      * Адрес регистрации клиента
      */
-    @Column(name = "prop")
+    @Column(name = "registration_place")
     private String registrationPlace;
 
     /**
      * Адрес фактического проживания клиента
      */
-    @Column(name = "Mzh")
+    @Column(name = "living_place")
     private String livingPlace;
 
     /**
      * Место работы клиента
      */
-    @Column(name = "Work")
+    @Column(name = "work_place")
     private String workPlace;
 
     /**
      * Телефон клиента
      */
-    @Column(name = "Fone")
+    @Column(name = "phone")
     private String phone;
 
     /**
      * Домашний телефон клиента
      */
-    @Column(name = "Home_fone")
+    @Column(name = "home_phone")
     private String homePhone;
 
     /**
      * Рабочий телефон клиента
      */
-    @Column(name = "Fone_worck")
+    @Column(name = "work_phone")
     private String workPhone;
 
     /**
      * Примечание
      */
-    @Column(name = "Desc")
+    @Column(name = "description")
     private String description;
 
     public String getFio() {

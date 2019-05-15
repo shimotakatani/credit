@@ -225,4 +225,49 @@
         </sql>
     </changeSet>
 
+    <changeSet id="201904291753" author="nponosov">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">select count(1) from information_schema.tables
+                where table_schema='bd' and table_name = 'catalog'
+            </sqlCheck>
+        </preConditions>
+        <comment>Меняем тип столбца</comment>
+        <sql>
+            ALTER TABLE "bd"."catalog"
+            ALTER price TYPE DECIMAL
+        </sql>
+    </changeSet>
+
+    <changeSet id="201904291756" author="nponosov">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">select count(1) from information_schema.tables
+                where table_schema='bd' and table_name = 'payment'
+            </sqlCheck>
+        </preConditions>
+        <comment>Меняем тип столбца</comment>
+        <sql>
+            ALTER TABLE "bd"."payment"
+            ALTER percent TYPE DECIMAL;
+
+            ALTER TABLE "bd"."payment"
+            ALTER balance TYPE DECIMAL;
+        </sql>
+    </changeSet>
+
+    <changeSet id="201904291758" author="nponosov">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">select count(1) from information_schema.tables
+                where table_schema='bd' and table_name = 'contract'
+            </sqlCheck>
+        </preConditions>
+        <comment>Меняем тип столбца</comment>
+        <sql>
+            ALTER TABLE "bd"."contract"
+            ALTER price TYPE DECIMAL;
+
+            ALTER TABLE "bd"."contract"
+            ALTER payment_value TYPE DECIMAL;
+        </sql>
+    </changeSet>
+
 </databaseChangeLog>

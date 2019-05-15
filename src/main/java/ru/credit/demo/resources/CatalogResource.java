@@ -4,21 +4,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import ru.credit.demo.dto.CatalogDto;
 import ru.credit.demo.dto.CustomerDto;
-import ru.credit.demo.services.CustomerService;
+import ru.credit.demo.services.CatalogService;
 
-import javax.websocket.server.PathParam;
 import java.util.List;
 
 @RestController
-public class RestResource {
+@RequestMapping("catalog")
+public class CatalogResource {
 
     @Autowired
-    public CustomerService customerService;
+    public CatalogService customerService;
 
-    @RequestMapping(value = "/echo", method = RequestMethod.GET)
-    public String echo(@PathParam("value") String value){
-        return value;
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
+    public List<CatalogDto> getAllCatalogList() {
+        return customerService.getAllCatalogList();
     }
-
 }

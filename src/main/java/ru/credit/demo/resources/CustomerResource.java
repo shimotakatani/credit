@@ -7,18 +7,17 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.credit.demo.dto.CustomerDto;
 import ru.credit.demo.services.CustomerService;
 
-import javax.websocket.server.PathParam;
 import java.util.List;
 
 @RestController
-public class RestResource {
+@RequestMapping("customer")
+public class CustomerResource {
 
     @Autowired
     public CustomerService customerService;
 
-    @RequestMapping(value = "/echo", method = RequestMethod.GET)
-    public String echo(@PathParam("value") String value){
-        return value;
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
+    public List<CustomerDto> getAllCustomerList() {
+        return customerService.getAllCustomerList();
     }
-
 }

@@ -1,43 +1,43 @@
-package ru.credit.demo.entity;
+package ru.credit.demo.dto;
 
-import lombok.Getter;
-import lombok.Setter;
+import ru.credit.demo.entity.BaseEntity;
+import ru.credit.demo.entity.CatalogEntity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
 import java.math.BigDecimal;
 
-@Getter
-@Setter
-@Entity
-@Table(name = "catalog", schema = "bd")
-public class CatalogEntity extends BaseEntity {
+public class CatalogDto  extends BaseDto  {
 
     /**
      * ID договора
      */
-    @Column(name = "contract_id")
     private Long contractId;
 
     /**
      * Наименование товара
      */
-    @Column(name = "good_name")
     private String goodName;
 
     /**
      * Цена товара
      */
-    @Column(name = "price")
     private BigDecimal price;
 
     /**
      * Количество товара
      */
-    @Column(name = "good_count")
     private Double goodCount;
 
+    @Override
+    public void fromEntity(BaseEntity entity) {
+        super.fromEntity(entity);
+        if (entity instanceof CatalogEntity) {
+            CatalogEntity catalogEntity = (CatalogEntity) entity;
+            this.setContractId(catalogEntity.getContractId());
+            this.setGoodCount(catalogEntity.getGoodCount());
+            this.setGoodName(catalogEntity.getGoodName());
+            this.setPrice(catalogEntity.getPrice());
+        }
+    }
 
     public Long getContractId() {
         return contractId;
